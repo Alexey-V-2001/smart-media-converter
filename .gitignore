@@ -1,0 +1,12 @@
+# Environment variables
+docker/.env
+
+# Local Django settings.py
+app\media_converter\media_converter\settings\local.py
+
+# Django logs
+app/media_converter/logs/*
+
+# DB's data
+docker/postgres/data/*
+docker/redis/data/*

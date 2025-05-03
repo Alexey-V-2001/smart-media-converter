@@ -1,0 +1,35 @@
+name: smart-media-converter
+
+services:
+  django:
+    container_name: django
+    build: ./django/
+    env_file:
+      - .env
+    volumes:
+      - ../app/:/usr/src/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+      - redis
+
+  postgres:
+    container_name: postgres
+    image: postgres:14
+    env_file:
+      - .env
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data/
+
+  redis:
+    container_name: redis
+    image: redis:8.0-rc1
+    command: redis-server /etc/redis/redis.conf --requirepass ${REDIS_PASSWORD}
+    env_file:
+      - .env
+    volumes:
+      - ./redis/data:/data
+      - ./redis/redis.conf:/etc/redis/redis.conf
+    ports:
+      - ${REDIS_PORT}:${REDIS_PORT}

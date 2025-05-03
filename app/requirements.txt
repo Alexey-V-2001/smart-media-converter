@@ -1,0 +1,23 @@
+# Django
+django==5.2
+django-axes
+whitenoise
+
+# PostgreSQL
+psycopg2-binary
+
+# Redis
+redis           # Redis Client for Python
+django-redis    # Integrating Redis with Django for Caching
+channels-redis  # Redis Support for Django Channels
+hiredis         # To speed up Redis parsing
+
+celery
+# To create an API
+djangorestframework
+# WebSockets support
+channels
+# Wrapper for FFmpeg
+ffmpeg-python
+
+gunicorn
